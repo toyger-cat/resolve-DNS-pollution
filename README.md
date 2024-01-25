@@ -1,15 +1,25 @@
 > please use 'administrator privileges' or 'sudo' to run this script or code.
 
-### Use script we provide directly
+# Explaination
+
+'python.py' is source code.
+
+'{system}_SCRIPT's are scripts that we package under different operating systems. They are more time-sensitive.
+
+If you find that they are not working, it would be great if you could report an issues. Other suggestions would also be welcome。
+
+# How to Use?
+
+## Use script we provide directly 
 
 ```txt
 git clone https://github.com/water-pill/resolve-DNS-pollution.git
 ```
 
-Run <mark>{plateform}_SCRIPT</mark> according to your operating system.
+Run {system}_SCRIPT according to your operating system.
 
 
-### Run source code
+## Run source code ( Stable but requires a configuration environment )
 
 ```txt
 git clone https://github.com/water-pill/resolve-DNS-pollution.git
@@ -24,7 +34,7 @@ sudo python3 python.py
 ```
 > ps: Commands may vary slightly depending on the operating system
 
-#### Get script locally
+### Get script locally
 
 ```python
 pip install pyinstaller
