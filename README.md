@@ -1,6 +1,6 @@
 ## Written at the beginning
 
-Run code and script using 'sudo' or 'administrator' mode.
+<center>** Run code and script using 'sudo' or 'administrator' mode.**</center>
 
 ## Use script we provide directly
 
@@ -11,14 +11,25 @@ git clone https://github.com/water-pill/resolve-DNS-pollution.git
 Run <mark>{plateform}_SCRIPT</mark> according to your operating system.
 
 
-## Run source code and get script locally
+## Run source code
 
 ```txt
 git clone https://github.com/water-pill/resolve-DNS-pollution.git
 ```
 
 ```python
-pip install requests beautifulsoup4 pyinstaller
+pip install requests beautifulsoup4
+```
+
+```python
+sudo python3 python.py
+```
+> ps: Commands may vary slightly depending on the operating system
+
+## Get script locally
+
+```python
+pip install pyinstaller
 ```
 
 ```python
