@@ -34,9 +34,9 @@ def clean_hosts(hosts_path):
         f.seek(0)
         f.truncate()
         for line in lines:
-            if re.match(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} github.com', line):
+            if re.match(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s+github.com', line):
                 continue
-            elif re.match(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} github.global.ssl.fastly.net', line):
+            elif re.match(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s+github.global.ssl.fastly.net', line):
                 continue
             elif line == '\n':
                 continue
