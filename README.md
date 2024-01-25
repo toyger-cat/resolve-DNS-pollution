@@ -1,8 +1,6 @@
-## Written at the beginning
+> please use 'administrator privileges' or 'sudo' to run this script or code.
 
-<center>** Run code or script using 'sudo' or 'administrator' mode.**</center>
-
-## Use script we provide directly
+### Use script we provide directly
 
 ```txt
 git clone https://github.com/water-pill/resolve-DNS-pollution.git
@@ -11,7 +9,7 @@ git clone https://github.com/water-pill/resolve-DNS-pollution.git
 Run <mark>{plateform}_SCRIPT</mark> according to your operating system.
 
 
-## Run source code
+### Run source code
 
 ```txt
 git clone https://github.com/water-pill/resolve-DNS-pollution.git
@@ -26,7 +24,7 @@ sudo python3 python.py
 ```
 > ps: Commands may vary slightly depending on the operating system
 
-## Get script locally
+#### Get script locally
 
 ```python
 pip install pyinstaller
