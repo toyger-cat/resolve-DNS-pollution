@@ -3,18 +3,20 @@ import os
 import requests
 from bs4 import BeautifulSoup
 import re
+import ctypes
 
-def check_platform():
-    if os.geteuid() != 0:
-        if sys.platform.startswith('linux') or sys.platform.startswith('darwin'):
-            print('Please run with sudo')
-            sys.exit(1)
-        elif sys.platform.startswith('win'):
-            print('Please run with administrator')
-            sys.exit(1)
-        else:
-            print('Cannot detect your platform')
-            sys.exit(1)
+def is_admin():
+    if os.name == 'nt':
+        try:
+            return ctypes.windll.shell32.IsUserAnAdmin()
+        except:
+            return False
+    else:
+        return os.geteuid() == 0
+
+if not is_admin():
+    print("please use administrator privileges to run this script")
+    sys.exit(1)
 
 def get_ip_address(url, name):
     response = requests.get(url)
@@ -51,8 +53,6 @@ def prepend_to_hosts(content, hosts_path):
         f.write(content + original_content)
         print('Done')
 
-check_platform()
-
 ip_addresses = ''
 ip_addresses += get_ip_address('https://sites.ipaddress.com/github.com', 'github.com')
 ip_addresses += get_ip_address('https://sites.ipaddress.com/github.global.ssl.fastly.net', 'github.global.ssl.fastly.net')
@@ -60,5 +60,6 @@ ip_addresses += get_ip_address('https://sites.ipaddress.com/github.global.ssl.fa
 if sys.platform.startswith('linux') or sys.platform.startswith('darwin'):
     prepend_to_hosts(ip_addresses, '/etc/hosts')
 elif sys.platform.startswith('win'):
+    ip_addresses += get_ip_address('https://sites.ipaddress.com/assets-cdn.github.com', 'assets-cdn.github.com')
     prepend_to_hosts(ip_addresses, 'C:\\Windows\\System32\\drivers\\etc\\hosts')
     os.system('ipconfig /flushdns')
