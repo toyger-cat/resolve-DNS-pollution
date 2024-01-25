@@ -9,7 +9,7 @@ git clone https://github.com/water-pill/resolve-DNS-pollution.git
 Run <mark>{plateform}_SCRIPT</mark> according to your operating system.
 
 
-## Get script locally
+## Run source code and get script locally
 
 ```txt
 git clone https://github.com/water-pill/resolve-DNS-pollution.git
