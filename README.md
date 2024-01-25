@@ -1,6 +1,10 @@
 > please use 'administrator privileges' or 'sudo' to run this script or code.
 
-# Explaination
+# Why 
+
+Access to GitHub in Chinese mainland is sometimes slow, because DNS is polluted, which leads to the failure of access. Some people say you need to install an accelerator, others say you need to use some magic. But is there a more elegant way to solve it? The answer is: you need to manually parse DNS.
+
+# Code
 
 'python.py' is source code.
 
