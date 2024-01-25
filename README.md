@@ -1,6 +1,6 @@
 ## Written at the beginning
 
-<center>** Run code and script using 'sudo' or 'administrator' mode.**</center>
+<center>** Run code or script using 'sudo' or 'administrator' mode.**</center>
 
 ## Use script we provide directly
 
