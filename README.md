@@ -1,5 +1,7 @@
 ## Written at the beginning
 
+Run code and script using 'sudo' or 'administrator' mode.
+
 ## Use script we provide directly
 
 ```txt
@@ -23,4 +25,4 @@ pip install requests beautifulsoup4 pyinstaller
 pyinstaller --onefile python.py
 ```
 
-The executable file (script) is in folder <mark>dist</mark>.
+The executable file (script) is in folder <strong>'dist'</strong>.
