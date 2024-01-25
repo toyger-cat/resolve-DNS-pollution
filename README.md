@@ -13,5 +13,4 @@ pip install requests beautifulsoup4 pyinstaller
 pyinstaller --onefile python.py
 ```
 
-```python
-
+The executable file (script) is in folder <strong>dist</strong>
