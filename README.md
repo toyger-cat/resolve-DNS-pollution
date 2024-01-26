@@ -50,4 +50,4 @@ pip install pyinstaller
 pyinstaller --onefile python.py
 ```
 
-The executable file (script) is in folder <strong>'dist'</strong>.
+The executable file is in folder <strong>'dist'</strong>. The 'build' folder can be deleted at will.
