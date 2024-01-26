@@ -6,10 +6,10 @@ import re
 import ctypes
 
 def is_admin():
-    try:
-        return ctypes.windll.shell32.IsUserAnAdmin() if os.name == 'nt' else os.geteuid() == 0
-    except:
-        return False
+    if os.name == 'nt':
+        return ctypes.windll.shell32.IsUserAnAdmin()
+    else:
+        return os.geteuid() == 0
 
 def get_ip_address(url, name):
     try:
@@ -36,6 +36,7 @@ def clean_hosts(hosts_path):
             f.writelines(preserved_lines)
     except Exception as e:
         print(f"Error occurred while cleaning hosts: {e}")
+        sys.exit(1)
 
 def prepend_to_hosts(content, hosts_path):
     try:
@@ -50,6 +51,15 @@ def prepend_to_hosts(content, hosts_path):
             print('Your hosts file is located at: ' + hosts_path + '.  You can restore it manually if you want to')
     except Exception as e:
         print(f"Error occurred while updating hosts: {e}")
+        sys.exit(1)
+
+def flush_dns():
+    if sys.platform.startswith('win'):
+        os.system('ipconfig /flushdns')
+
+def exit_prompt():
+    input("Press Enter to exit...")
+    sys.exit(0)
 
 if not is_admin():
     print("please use 'administrator privileges' or 'sudo' to run this script")
@@ -63,20 +73,16 @@ while True:
     hosts_path = '/etc/hosts' if sys.platform.startswith('linux') or sys.platform.startswith('darwin') else 'C:\\Windows\\System32\\drivers\\etc\\hosts'
     if choice == 'C':
         clean_hosts(hosts_path)
-        if sys.platform.startswith('win'):
-            os.system('ipconfig /flushdns')
+        flush_dns()
         print('---------------------Done!--------------------')
         print('Your hosts file has been cleaned up successfully')
-        input("Press Enter to exit...")
-        sys.exit(0)
+        exit_prompt()
     elif choice == 'U':
         ip_addresses = ''
-        ip_addresses += get_ip_address('https://sites.ipaddress.com/github.com', 'github.com')
-        ip_addresses += get_ip_address('https://sites.ipaddress.com/github.global.ssl.fastly.net', 'github.global.ssl.fastly.net')
+        ip_addresses += get_ip_address('github.com')
+        ip_addresses += get_ip_address('github.global.ssl.fastly.net')
         if sys.platform.startswith('win'):
-            ip_addresses += get_ip_address('https://sites.ipaddress.com/assets-cdn.github.com', 'assets-cdn.github.com')
+            ip_addresses += get_ip_address('assets-cdn.github.com')
         prepend_to_hosts(ip_addresses, hosts_path)
-        if sys.platform.startswith('win'):
-            os.system('ipconfig /flushdns')
-        input("Press Enter to exit...")
-        break
+        flush_dns()
+        exit_prompt()
