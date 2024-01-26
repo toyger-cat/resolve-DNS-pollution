@@ -14,6 +14,8 @@ If you find that they are not working, it would be great if you could report an 
 
 # How to Use?
 
+You can choose to clean previous hosts file settings or update hosts file (C/U).
+
 ## Use script we provide directly 
 
 ```txt
