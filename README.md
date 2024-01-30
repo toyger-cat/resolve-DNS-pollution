@@ -6,15 +6,13 @@ Access to GitHub in Chinese mainland is sometimes slow, because DNS is polluted,
 
 # Code
 
-'python.py' is source code.
+'main.py' is source code.
 
 '{system}_SCRIPT's are scripts that we package under different operating systems. They are more time-sensitive.
 
 If you find that they are not working, it would be great if you could report an issues. Other suggestions would also be welcome。
 
 # How to Use?
-
-You can choose to clean previous hosts file settings or update hosts file (C/U).
 
 ## Use script we provide directly 
 
@@ -36,7 +34,7 @@ pip install requests beautifulsoup4
 ```
 
 ```python
-sudo python3 python.py
+sudo python3 main.py
 ```
 > ps: Commands may vary slightly depending on the operating system
 
